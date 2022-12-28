@@ -1,0 +1,87 @@
+	card Alucard. { health: 150, energy: 60, damage: 70, actions: (Attack)(Breathe)(Slash),}
+
+action Attack. { conditions: (EnergyMoreThan10), effects: (AttackEnemy)(Lowenergy10),}
+action Breathe. { conditions: (Exists), effects: (RestoreEnergy),}
+action Slash. { conditions: (EnergyMoreThan30), effects: (InjureEnemy)(Lowenergy30),}
+
+condition Exists. {value: caster.health>0,}
+condition EnergyMoreThan10. {value: caster.energy>10,}
+condition EnergyMoreThan20. {value: caster.energy>20,}
+condition EnergyMoreThan30. {value: caster.energy>30,}
+
+effect Lowenergy10. {value: caster.energy=(caster.energy-10),}
+effect Lowenergy30. {value: caster.energy=(caster.energy-30),}
+effect RestoreEnergy. {value: caster.energy=(caster.energy+25),}
+effect AttackEnemy. {value: target.health=(target.health-caster.damage),}
+effect InjureEnemy. {value: target.health=(target.health-(2*caster.damage)),}
+
+	card Lenore. { health: 90, energy: 60, damage: 50, actions: (Attack)(Persuade),}
+
+action Persuade. { conditions: (EnergyMoreThan20), effects: (PersuadeEnemy)(GuardDown)(Lowenergy20),}
+
+effect Lowenergy20. {value: caster.energy=(caster.energy-20),}
+effect PersuadeEnemy. {value: target.energy=(target.energy/2),}
+effect GuardDown. {value: target.damage=(target.damage/2),}
+
+	card Isaac. { health: 100, energy: 100, damage:60, actions: (Attack)(Knife)(DarkCreatures),}
+
+action Knife. { conditions: (EnergyMoreThan30), effects: (InjureEnemy)(Lowenergy30),}
+action DarkCreatures. { conditions: (EnergyMax), effects: (Kill)(DryEnergy),}
+action Kill. { conditions: (EnergyMax), effects: (Kill)(DryEnergy),}
+
+condition EnergyMax. { value: caster.energy=100,}
+
+effect Kill. {value: target.health=0, }
+effect DryEnergy. {value: caster.energy=0, }
+
+	card Striga. {health: 190, energy: 105, damage:90, actions: (Attack)(Breathe),}
+
+	card Humans. {health: 120, energy: 100, damage:65, actions: (Attack)(Breathe),}
+	
+	card Morana. {health: 80, energy: 70, damage:30, actions: (Attack),}
+
+	card Greta. {health: 100, energy: 70, damage:60, actions: (Attack)(Slash),}
+
+	card Hector. {health: 120, energy: 100, damage:50, actions: (Attack)(DarkCreatures),}
+
+	card Carmilla. {health: 160, energy: 90, damage:90, actions: (Attack)(Strike)(Explode),}
+
+action Strike. { conditions: (EnergyMoreThan50), effects: (StrikeEnemy)(Lowenergy50),}
+action Explode. {conditions: (Exists), effects: (Kill)(Suicide),}
+
+condition EnergyMoreThan50. {value: caster.energy>50,}
+
+effect Suicide. {value: caster.health=0,}
+effect StrikeEnemy. {value: target.health=(target.health/4),}
+effect Lowenergy50. {value: caster.energy=(caster.energy-50),}
+
+	card St.Germain. {health: 100, energy: 100, damage:60, actions: (Attack)(DarkCreatures),}
+	
+	card Belmont. {health: 150, energy: 90, damage:95, actions: (Attack)(Chain)(Wip),}
+	
+action Chain. {conditions: (EnergyMoreThan30), effects: (InjureEnemy)(Lowenergy30),}
+action Wip. {conditions: (EnergyMoreThan20), effects: (AttackEnemy)(LowenergyEnemy20)(Lowenergy20),}
+	
+effect LowenergyEnemy20. {value: target.energy=(target.energy-20),}
+
+	card Death. {health: 200, energy: 100, damage:0, actions: (Kill)(RestoreMaxEnergy),}
+
+action RestoreMaxEnergy. {conditions: (Exists), effects: (MaxEnergy),}
+
+effect MaxEnergy. {value: caster.energy=100,}
+
+	card NightCreatures. {health: 150, energy: 80, damage:70, actions: (Attack)(Breathe),}
+	
+	card Vampires. {health: 120, energy: 90, damage:80, actions: (Attack)(Breathe),}
+
+	card Dracula. {health: 200, energy: 100, damage:100, actions: (Attack)(Breathe)(Kill),}
+
+	card Lisa. {health: 60, energy: 120, damage: 0, actions: (Heal)(SelfHeal),}
+
+action Heal. {conditions: (EnergyMoreThan30), effects: (HealTarget)(Lowenergy30),}
+action SelfHeal. {conditions: (EnergyMoreThan20), effects: (HealCaster),}
+
+effect HealTarget. {value: target.health=(target.health+30),}
+effect HealCaster. {value: caster.health=(caster.health+30),}
+		
+	card Sypha. {health: 120, energy: 100, damage:90, actions: (Attack)(Heal)(SelfHeal),}

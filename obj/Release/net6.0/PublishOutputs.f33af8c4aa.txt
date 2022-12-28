@@ -1,0 +1,5 @@
+E:\Castlevania Battlecards\bin\Release\net6.0\publish\Castlevania Battlecards.exe
+E:\Castlevania Battlecards\bin\Release\net6.0\publish\Castlevania Battlecards.dll
+E:\Castlevania Battlecards\bin\Release\net6.0\publish\Castlevania Battlecards.deps.json
+E:\Castlevania Battlecards\bin\Release\net6.0\publish\Castlevania Battlecards.runtimeconfig.json
+E:\Castlevania Battlecards\bin\Release\net6.0\publish\Castlevania Battlecards.pdb

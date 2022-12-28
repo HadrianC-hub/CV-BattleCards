@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Castlevania Battlecards/1.0.0": {
+        "runtime": {
+          "Castlevania Battlecards.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Castlevania Battlecards/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
